@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Producto } from '../models/producto';
-import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root' // <-- Asegúrate de que esté en root
 })
 export class ProductoService {
 
@@ -22,8 +22,6 @@ export class ProductoService {
           id: prod.getElementsByTagName('id')[0].textContent,
           nombre: prod.getElementsByTagName('nombre')[0].textContent,
           precio:prod.getElementsByTagName('precio')[0].textContent,
-          cantidad:prod.getElementsByTagName('cantidad')[0].textContent,
-          creador:prod.getElementsByTagName('creador')[0].textContent,
           imagen:prod.getElementsByTagName('imagen')[0].textContent
           }));
         return productos;
@@ -31,3 +29,4 @@ export class ProductoService {
     );
   }
 }
+
