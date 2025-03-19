@@ -3,27 +3,72 @@
 </head>
 <app-header></app-header>
 <div class="margen"></div>
-<div class="productos">
-    <div *ngFor="let producto of productos" class="producto">
-        <div class="card-header">
-            <button (click)="agregarAlCarrito(producto)">
-            <i class="fa-regular fa-heart"></i>
-            </button>
+<div class="bienvenida">
+<h1>MODELOS LISTOS PARA<br>CUALQUIER PROYECTO</h1>
+<button><a href="#productoos">explorar</a></button>
+</div>
+<div class="home">
+    <div class="filtros">
+       <input type="text" placeholder="Busca aquí..."><i class="fa-solid fa-magnifying-glass"></i>
+       <h3>Categoría</h3>
+       <div class="sidebar">
+       <label>
+        <input type="checkbox" name="arquitectura" value="arquitectura"> Arquitectura
+        </label><br>
+        <label>
+            <input type="checkbox" name="miscelanea" value="miscelanea"> Miscelanea
+            </label><br>
+            <label>
+                <input type="checkbox" name="comida" value="comida"> Comida
+                </label><br>
+                <label>
+                    <input type="checkbox" name="personajes" value="personajes"> Personajes
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="transporte" value="transporte"> Transporte
+                        </label><br>
+                        <label>
+                            <input type="checkbox" name="objetos" value="objetos"> Objetos
+                            </label><br>
+                            <label>
+                                <input type="checkbox" name="ciencia" value="ciencia"> Ciencia
+                                </label><br>
+                                <label>
+                                    <input type="checkbox" name="fantasia" value="fantasia"> Fantasía
+                                    </label><br>
+                                    <label>
+                                        <input type="checkbox" name="arte" value="arte"> Arte
+                                        </label><br>
+                                        <label>
+                                            <input type="checkbox" name="naturalez" value="naturaleza"> Naturaleza
+                                            </label><br>
         </div>
-        <img [src]="producto.imagen">
-        <div class="especificaciones">
-            <h3>{{producto.nombre}}</h3>
-            <p>Precio: ${{producto.precio}}</p>
-            <button (click)="agregarAlCarrito(producto)">
-                <i class="fa-solid fa-cart-plus"></i>
-            </button>
+       <h3>Precio</h3>
+       <button>Aplicar filtros</button>
+    </div>
+    <div class="productos" id="productoos">
+        <div *ngFor="let producto of productos" class="producto">
+            <div class="card-header">
+                <button>
+                <i class="fa-regular fa-heart"></i>
+                </button>
+            </div>
+            <img [src]="producto.imagen">
+            <div class="especificaciones">
+                <h3>{{producto.nombre}}</h3>
+                <div class="card-footer">
+                    <p>Precio: ${{producto.precio}}</p>
+                    <button (click)="agregarAlCarrito(producto)" class="carrito">
+                        <i class="fa-solid fa-cart-plus"></i>
+                    </button>
+                </div>
+            </div>
             
         </div>
-        
-    </div>
-    <div *ngIf="productos.length==0" class="vacio">
-      <img src="assets/compras.jpeg">
-      <p>Proximamente más modelos para ti</p>
-      <p>¡Sé paciente!</p>
-    </div>
-    </div>
+        <div *ngIf="productos.length==0" class="vacio">
+          <img src="assets/compras.jpeg">
+          <p>Proximamente más modelos para ti</p>
+          <p>¡Sé paciente!</p>
+        </div>
+        </div>
+</div>

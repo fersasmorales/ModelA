@@ -1,10 +1,48 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
 .margen {
    margin-top: 100px;
 }
 
+.bienvenida{
+width: 100%;
+background-color: #332a51;
+height: 300px;
+text-align: center;
+}
+.bienvenida h1{
+    font-family: 'Fredoka';
+    color: #d9d9f0;
+    padding-top: 40px;
+    }
+.bienvenida button{
+    font-family: 'Sacramento';
+    background: none;
+    color: #d9d9f0; /* Mantiene el color del texto según el contexto */
+    cursor: pointer;
+    font-size: 60px;
+    border: 2px solid #d9d9f0;
+    border-radius: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border-width: 4px;
+}
+.bienvenida button a {
+    text-decoration: none; /* Quita el subrayado */
+    color: inherit; /* Hereda el color del botón */
+    display: block; /* Hace que el enlace ocupe todo el botón */
+    width: 100%; 
+    height: 100%;
+    text-align: center;
+    
+}
+
+
 /* Contenedor de productos */
 .productos {
+    width: 80%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -17,7 +55,7 @@
     width: 250px;
     background: linear-gradient(to bottom, #d6dbf1, #f7f8fd);
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(132, 131, 131, 0.2);
     padding: 15px;
     text-align: center;
     transition: transform 0.3s ease-in-out;
@@ -30,20 +68,6 @@
     height: 200px;
     object-fit: cover;
     border-radius: 10px;
-}
-
-/* Título del producto */
-.producto h3 {
-    font-size: 1.2rem;
-    color: #333;
-    margin: 10px 0;
-}
-
-/* Precio */
-.producto p {
-    font-size: 1rem;
-    font-weight: bold;
-    color: #ff4500;
 }
 
 /* Si no hay productos */
@@ -86,6 +110,7 @@
     padding-left: 15px;
     color: #8991c3;
     margin: 0;
+    margin-bottom: 10px;
 }
 
 .productos i{
@@ -108,5 +133,91 @@
     color: inherit; /* Mantiene el color del texto según el contexto */
     cursor: pointer; /* Mantiene la apariencia de botón */
 
+}
+
+.card-header {
+    display: flex;
+    justify-content: flex-end; 
+}
+.card-footer {
+    display: flex;
+    justify-content: space-between; /* Precio a la izquierda, carrito a la derecha */
+    align-items: center;
+}
+.carrito {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+
+.home{
+    display: flex;
+    margin: 0;
+    width: 100%;
+}
+
+.filtros{
+    background: linear-gradient(to bottom, #d6dbf1, #f7f8fd);
+    width: 30%;
+    justify-content: center;
+}
+
+input{
+    background-color: #fdf7f7;
+    font-family: 'Poppins';
+    font-weight: 400;
+    border-color: #c6c6c6;
+    padding: 8px;
+    border-radius: 20px;
+    font-size: 10px;
+    text-align: left;
+    color: #6d74a0;
+    font-size: 15px;
+    margin: 10px;
+  }
+
+.filtros label,h3,input{
+    font-family: 'Poppins';
+    text-align: left;
+    margin-left: 20px;
+}
+
+.filtros input{
+    margin-top: 20px;
+    color: #ccc;
+    text-align: left;
+}
+
+.filtros label{
+    color:#8991c3;
+    font-size: 20px;
+    border-color: #8991c3;
+    text-align: left;
+    
+}
+
+.filtros button{
+    font-family: 'Poppins';
+    font-weight: 600;
+    color: #6d74a0;
+    background: linear-gradient(to bottom, #dcdeea, #b7bfef);
+    padding: 10px;
+    border: none;
+    font-size: 15px;
+    border-radius: 20px;
+   
+}
+.filtros button:hover{
+    font-family: 'Poppins';
+    font-weight: 600;
+    color: #e4e6f0;
+    background: linear-gradient(to bottom, #a6a9bc, #7c88ca);
+    padding: 10px;
+    border: none;
+    font-size: 15px;
+    border-radius: 20px;
 }
 
