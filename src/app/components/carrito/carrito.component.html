@@ -1,2 +1,96 @@
-<app-header></app-header>
-<p>Carrito</p>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+<body>
+    <app-header></app-header>
+    <div class="margen"></div>
+    <h1>Tu carrito</h1>
+    <div>
+        <div class="carrito" *ngIf="carrito.length>0">
+            <div class="carritoheader">
+                <span>Producto</span>
+                <span>Cantidad</span>
+                <span class="totaltexto">Total</span>
+            </div>
+            <div *ngFor="let producto of carrito; let i = index" class="item">
+                <img [src]="producto.imagen" alt="{{producto.nombre}}" class="product-img">
+                <div class="detalles">
+                    <span class="producto">{{producto.nombre}}</span><br><br>
+                    <span class="precio">${{producto.precio}}</span>
+                </div>
+                <div class="cantidad">
+                    <button (click)="actualizarCantidad(producto.id, producto.cantidad - 1)" >-</button>
+                    <span>{{producto.cantidad}}</span>
+                    <button (click)="actualizarCantidad(producto.id, producto.cantidad + 1)">+</button>
+                </div>
+                <span class="total">${{producto.precio * producto.cantidad}}</span>
+                <button (click)="eliminarProducto(producto)" class="borrar">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="factura" *ngIf="carrito.length>0">
+        <button *ngIf="carrito.length > 0" (click)="carritoService.descargarXML()">Comprar</button>
+    </div>
+    <div *ngIf="carrito.length==0"  class="centrar">
+        <img src="assets/compras.jpeg">
+        <p>El carrito está vacío <br> ¡Vamos de compras!</p>
+    </div>
+
+
+    <!-- ... 
+<div class="cart-container"> 
+        <div *ngIf="carrito.length>0">
+            <div *ngFor="let producto of carrito; let i = index" class="item">
+                <img [src]="producto.imagen" alt="{{producto.nombre}}" class="product-img">
+                <div class="details">
+                    <span class="product-name">{{producto.nombre}}</span>
+                    <span class="price">${{producto.precio}}</span>
+                </div>
+                <div class="quantity">
+                    <button (click)="actualizarCantidad(producto.id, producto.cantidad - 1)" class="quantity-btn">-</button>
+                    <span class="quantity-text">{{producto.cantidad}}</span>
+                    <button (click)="actualizarCantidad(producto.id, producto.cantidad + 1)" class="quantity-btn">+</button>
+                </div>
+                <span class="total">${{producto.precio * producto.cantidad}}</span>
+                <button class="delete" (click)="eliminarProducto(producto)">🗑️</button>
+            </div>
+            
+        </div>
+    </div>
+    <div *ngIf="carrito.length==0">
+        <h2>Carrito vacío<br>¡Vamos de compras!</h2>
+        <img src="assets/unicornio.png">
+    </div>
+
+    <button class="delete" (click)="descargarXML()">XML 🫦🫦</button>
+    -->
+
+
+
+
+</body>
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-section">
+            <h3>Sobre Nosotros</h3>
+            <p>Somos una tienda dedicada a ofrecer los mejores productos con la mejor calidad.</p>
+        </div>
+        <div class="footer-section">
+            <h3>Contacto</h3>
+            <p>Teléfono: +123 456 7890</p>
+        </div>
+        <div class="footer-section">
+            <h3>Síguenos</h3>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 Tienda | Todos los derechos reservados</p>
+    </div>
+</footer>

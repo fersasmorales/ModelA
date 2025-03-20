@@ -6,6 +6,8 @@ import { DeseosComponent } from './app/components/deseos/deseos.component';
 import { PerfilComponent } from './app/components/perfil/perfil.component';
 import { CarritoComponent } from './app/components/carrito/carrito.component';
 import { HeaderComponent } from './app/components/header/header.component';
+import { CarritoService } from './app/services/carrito.service';
+import { ProductoService } from './app/services/producto.service';
 import { provideRouter } from '@angular/router';
 import { routes } from './app/app.routes';
 import { provideHttpClient } from '@angular/common/http';

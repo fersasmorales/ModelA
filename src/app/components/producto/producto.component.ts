@@ -38,7 +38,7 @@ export class ProductoComponent implements OnInit{
   }
   agregarAlCarrito(producto:any){
     this.carritoService.agregarProducto(producto);
-    alert(`${producto.nombre} ha sido agregado al carrito`);
+    /*alert(`${producto.nombre} ha sido agregado al carrito`);*/
     }
 
 }

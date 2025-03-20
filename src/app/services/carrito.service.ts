@@ -5,30 +5,33 @@ import { Producto } from '../models/producto';
   providedIn: 'root'
 })
 export class CarritoService {
-  private carrito:Producto[]=[];
-  agregarProducto(producto:Producto){
-    this.carrito.push(producto);
+  private carrito: Producto[] = [];
+
+  agregarProducto(producto: Producto) {
+    const existente = this.carrito.find(p => p.id === producto.id);
+    if (existente) {
+      existente.cantidad += 1;
+    } else {
+      this.carrito.push({ ...producto, cantidad: 1 });
+    }
   }
-  obtenerCarrito():Producto[]{
+
+  obtenerCarrito(): Producto[] {
     return this.carrito;
+  }
+
+  actualizarCantidad(id: number, cantidad: number) {
+    const producto = this.carrito.find(p => p.id === id);
+
+    if (producto && cantidad > 0) {
+      producto.cantidad = cantidad;
+    } else if (producto && cantidad === 0) {
+      this.eliminarProducto(producto);
+    }
   }
   generarXML(): string {
     const fechaActual = new Date().toISOString().split('T')[0];
     const folio = Date.now(); 
-
-    const productosAgrupados: { [id: string]: { nombre: string, cantidad: number, precio: number } } = {};
-
-    this.carrito.forEach((producto) => {
-        if (productosAgrupados[producto.id]) {
-            productosAgrupados[producto.id].cantidad++;
-        } else {
-            productosAgrupados[producto.id] = { 
-                nombre: producto.nombre, 
-                cantidad: 1, 
-                precio: producto.precio 
-            };
-        }
-    });
 
     let xml = `<?xml version="1.0" encoding="UTF-8"?>\n`;
     xml += `<factura>\n`;
@@ -44,19 +47,18 @@ export class CarritoService {
 
     let subtotal = 0;
 
-    for (const id in productosAgrupados) {
-        const producto = productosAgrupados[id];
-        const totalProducto = producto.precio * producto.cantidad;
-        subtotal += totalProducto;
+    this.carrito.forEach(producto => {
+      const totalProducto = producto.precio * producto.cantidad;
+      subtotal += totalProducto;
 
-        xml += `    <producto>\n`;
-        xml += `        <id>${id}</id>\n`;
-        xml += `        <descripcion>${producto.nombre}</descripcion>\n`;
-        xml += `        <cantidad>${producto.cantidad}</cantidad>\n`;
-        xml += `        <preciounitario>$${producto.precio}</preciounitario>\n`;
-        xml += `        <subtotal>$${totalProducto}</subtotal>\n`;
-        xml += `    </producto>\n`;
-    }
+      xml += `    <producto>\n`;
+      xml += `        <id>${producto.id}</id>\n`;
+      xml += `        <descripcion>${producto.nombre}</descripcion>\n`;
+      xml += `        <cantidad>${producto.cantidad}</cantidad>\n`;
+      xml += `        <preciounitario>$${producto.precio}</preciounitario>\n`;
+      xml += `        <subtotal>$${totalProducto}</subtotal>\n`;
+      xml += `    </producto>\n`;
+    });
 
     const iva = Number((subtotal * 0.16).toFixed(2));
     const total = subtotal + iva;
@@ -67,16 +69,15 @@ export class CarritoService {
     xml += `    <impuestos>\n`;
     xml += `        <iva>$${iva.toFixed(2)}</iva>\n`;
     xml += `    </impuestos>\n`;
-    xml += `    <total>$${total.toFixed(2)}</total>\n`; // Se agrega el total final
+    xml += `    <total>$${total.toFixed(2)}</total>\n`;
     xml += `</totales>\n`;
     xml += `</factura>`;
 
     return xml;
-}
+  }
 
-
-  descargarXML(){
-    const blob = new Blob([this.generarXML()], {type: 'application/xml'});
+  descargarXML() {
+    const blob = new Blob([this.generarXML()], { type: 'application/xml' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
@@ -85,12 +86,10 @@ export class CarritoService {
     a.click();
     document.body.removeChild(a);
   }
-  eliminarProducto(producto: Producto){
-    const index = this.carrito.findIndex(p => p.id === producto.id);
 
-  if (index !== -1) {
-    this.carrito.splice(index, 1); // Elimina el producto del carrito
+  eliminarProducto(producto: Producto) {
+    this.carrito = this.carrito.filter(p => p.id !== producto.id);
   }
-  }
+
   constructor() { }
 }
