@@ -76,6 +76,10 @@ export class CarritoService {
     return xml;
   }
 
+vaciarCarrito() {
+  this.carrito = [];
+}
+
   descargarXML() {
     const blob = new Blob([this.generarXML()], { type: 'application/xml' });
     const url = URL.createObjectURL(blob);

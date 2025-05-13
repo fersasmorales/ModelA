@@ -32,6 +32,7 @@
 
     <div class="factura" *ngIf="carrito.length>0">
         <button *ngIf="carrito.length > 0" (click)="carritoService.descargarXML()">Comprar</button>
+        <div class="paypal-container"><div id="paypal-button-container" ></div></div>
     </div>
     <div *ngIf="carrito.length==0"  class="centrar">
         <img src="assets/compras.jpeg">
