@@ -9,6 +9,7 @@ import { Producto } from '../../models/producto';
 import { CarritoComponent } from '../carrito/carrito.component';
 import { ProductoService } from '../../services/producto.service';
 import { CarritoService } from '../../services/carrito.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-producto',
@@ -20,16 +21,27 @@ import { CarritoService } from '../../services/carrito.service';
 export class ProductoComponent implements OnInit{
   productos:any[]=[];
   mostrarHeader: boolean = true;
+
+  Toast = Swal.mixin({
+    toast: true,
+    position: 'center',
+    iconColor: 'white',
+    customClass: {
+      popup: 'colored-toast',
+    },
+    showConfirmButton: false,
+    timer: 1500,
+    timerProgressBar: true,
+  });
+
   constructor(
     private productoService:ProductoService,
     private carritoService:CarritoService,
     private router:Router
   ){}
-  ngOnInit(): void {
-    this.productoService.obtenerProductos().subscribe(productos => {
-      this.productos = productos;
-    }, error => {
-      console.error('Error al obtener productos:', error);
+  ngOnInit() {
+    this.productoService.obtenerProductos().subscribe(data => {
+      this.productos = data as any[];
     });
   }
 
@@ -38,7 +50,12 @@ export class ProductoComponent implements OnInit{
   }
   agregarAlCarrito(producto:any){
     this.carritoService.agregarProducto(producto);
-    /*alert(`${producto.nombre} ha sido agregado al carrito`);*/
+    this.Toast.fire({
+      icon: 'success',
+      title: '¡Genial!',
+      position: 'top-end',
+      text: 'Tu modelo se ha agregado al carrito.'
+    });
     }
 
 }

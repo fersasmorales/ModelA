@@ -85,7 +85,7 @@ h1 {
     font-weight: 500;
     color: #332a51;
     display: grid;
-    grid-template-columns: 4.5fr 1fr 1fr auto;
+    grid-template-columns: 4.5fr 0.5fr auto;
     text-align: left;
     margin-left: 10px;
     padding: 10px;
@@ -205,4 +205,11 @@ h1{
     font-family: 'Montserrat';
     color: #332a51;
     text-align: left;
+}
+
+.vacio p {
+    font-family:'Fredoka' ;
+    font-weight: 500;
+    color: #6d74a0;
+    font-size: 30px;
 }

@@ -9,10 +9,15 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ProductoService {
 
-  private xmlUrl = 'assets/productos.xml';
+  private apiURL='http://localhost:3000/api/productos';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient){}
+    obtenerProductos(){
+      return this.http.get(this.apiURL);
+    }
 
+
+  /*
   obtenerProductos(): Observable<any[]> {
     return this.http.get(this.xmlUrl, { responseType: 'text' }).pipe(
       map(xml => {
@@ -27,6 +32,6 @@ export class ProductoService {
         return productos;
       })
     );
-  }
+  }*/
 }
 

@@ -7,7 +7,6 @@
         <div class="carrito" *ngIf="carrito.length>0">
             <div class="carritoheader">
                 <span>Producto</span>
-                <span>Cantidad</span>
                 <span class="totaltexto">Total</span>
             </div>
             <div *ngFor="let producto of carrito; let i = index" class="item">
@@ -15,11 +14,6 @@
                 <div class="detalles">
                     <span class="producto">{{producto.nombre}}</span><br><br>
                     <span class="precio">${{producto.precio}}</span>
-                </div>
-                <div class="cantidad">
-                    <button (click)="actualizarCantidad(producto.id, producto.cantidad - 1)" >-</button>
-                    <span>{{producto.cantidad}}</span>
-                    <button (click)="actualizarCantidad(producto.id, producto.cantidad + 1)">+</button>
                 </div>
                 <span class="total">${{producto.precio * producto.cantidad}}</span>
                 <button (click)="eliminarProducto(producto)" class="borrar">
@@ -31,11 +25,13 @@
     </div>
 
     <div class="factura" *ngIf="carrito.length>0">
-        <button *ngIf="carrito.length > 0" (click)="carritoService.descargarXML()">Comprar</button>
+        <div class="paypal-container">
+    <div id="paypal-button-container" ></div>
     </div>
-    <div *ngIf="carrito.length==0"  class="centrar">
-        <img src="assets/compras.jpeg">
-        <p>El carrito está vacío <br> ¡Vamos de compras!</p>
+    </div>
+    <div *ngIf="carrito.length==0"  class="vacio">
+        <img src="assets/hello kitty.png">
+        <p >El carrito está vacío <br> ¡Vamos de compras!</p>
     </div>
 
 

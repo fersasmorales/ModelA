@@ -48,11 +48,6 @@
     </div>
     <div class="productos" id="productoos">
         <div *ngFor="let producto of productos" class="producto">
-            <div class="card-header">
-                <button>
-                <i class="fa-regular fa-heart"></i>
-                </button>
-            </div>
             <img [src]="producto.imagen">
             <div class="especificaciones">
                 <h3>{{producto.nombre}}</h3>
@@ -66,8 +61,8 @@
             
         </div>
         <div *ngIf="productos.length==0" class="vacio">
-          <img src="assets/compras.jpeg">
-          <p>Proximamente más modelos para ti</p>
+          <img src="assets/hello kitty.png">
+          <p class="vaciotxt">Proximamente más modelos para ti</p>
           <p>¡Sé paciente!</p>
         </div>
         </div>

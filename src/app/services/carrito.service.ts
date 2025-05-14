@@ -33,6 +33,20 @@ export class CarritoService {
     const fechaActual = new Date().toISOString().split('T')[0];
     const folio = Date.now(); 
 
+    const productosAgrupados: { [id: string]: { nombre: string, cantidad: number, precio: number } } = {};
+
+    this.carrito.forEach((producto) => {
+        if (productosAgrupados[producto.id]) {
+            productosAgrupados[producto.id].cantidad++;
+        } else {
+            productosAgrupados[producto.id] = { 
+                nombre: producto.nombre, 
+                cantidad: 1, 
+                precio: producto.precio 
+            };
+        }
+    });
+
     let xml = `<?xml version="1.0" encoding="UTF-8"?>\n`;
     xml += `<factura>\n`;
     xml += `<info>\n`;
@@ -47,18 +61,19 @@ export class CarritoService {
 
     let subtotal = 0;
 
-    this.carrito.forEach(producto => {
-      const totalProducto = producto.precio * producto.cantidad;
-      subtotal += totalProducto;
+    for (const id in productosAgrupados) {
+        const producto = productosAgrupados[id];
+        const totalProducto = producto.precio * producto.cantidad;
+        subtotal += totalProducto;
 
-      xml += `    <producto>\n`;
-      xml += `        <id>${producto.id}</id>\n`;
-      xml += `        <descripcion>${producto.nombre}</descripcion>\n`;
-      xml += `        <cantidad>${producto.cantidad}</cantidad>\n`;
-      xml += `        <preciounitario>$${producto.precio}</preciounitario>\n`;
-      xml += `        <subtotal>$${totalProducto}</subtotal>\n`;
-      xml += `    </producto>\n`;
-    });
+        xml += `    <producto>\n`;
+        xml += `        <id>${id}</id>\n`;
+        xml += `        <descripcion>${producto.nombre}</descripcion>\n`;
+        xml += `        <cantidad>${producto.cantidad}</cantidad>\n`;
+        xml += `        <preciounitario>$${producto.precio}</preciounitario>\n`;
+        xml += `        <subtotal>$${totalProducto}</subtotal>\n`;
+        xml += `    </producto>\n`;
+    }
 
     const iva = Number((subtotal * 0.16).toFixed(2));
     const total = subtotal + iva;
@@ -69,15 +84,19 @@ export class CarritoService {
     xml += `    <impuestos>\n`;
     xml += `        <iva>$${iva.toFixed(2)}</iva>\n`;
     xml += `    </impuestos>\n`;
-    xml += `    <total>$${total.toFixed(2)}</total>\n`;
+    xml += `    <total>$${total.toFixed(2)}</total>\n`; // Se agrega el total final
     xml += `</totales>\n`;
     xml += `</factura>`;
 
     return xml;
-  }
+}
 
-  descargarXML() {
-    const blob = new Blob([this.generarXML()], { type: 'application/xml' });
+vaciarCarrito() {
+  this.carrito = [];
+}
+
+  descargarXML(){
+    const blob = new Blob([this.generarXML()], {type: 'application/xml'});
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;

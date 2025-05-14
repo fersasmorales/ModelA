@@ -52,6 +52,8 @@ text-align: center;
 
 /* Estilo individual para cada producto */
 .producto {
+    max-height: 300px;
+    overflow: hidden;
     width: 250px;
     background: linear-gradient(to bottom, #d6dbf1, #f7f8fd);
     border-radius: 10px;
@@ -82,9 +84,10 @@ text-align: center;
 }
 
 .vacio p {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #666;
+    font-family:'Fredoka' ;
+    font-weight: 500;
+    color: #6d74a0;
+    font-size: 30px;
 }
 
 .especificaciones{
@@ -220,4 +223,3 @@ input{
     font-size: 15px;
     border-radius: 20px;
 }
-
