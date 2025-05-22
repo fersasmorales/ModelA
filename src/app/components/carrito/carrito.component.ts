@@ -18,7 +18,7 @@ declare var paypal: any;
   styleUrl: './carrito.component.css'
 })
 export class CarritoComponent implements AfterViewInit{
-  carrito: Producto[] = [];
+  carrito: any[] = [];
 
   constructor(
     public carritoService: CarritoService, 

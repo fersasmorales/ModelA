@@ -5,7 +5,7 @@ import { Producto } from '../models/producto';
   providedIn: 'root'
 })
 export class CarritoService {
-  private carrito: Producto[] = [];
+  private carrito: any[] = [];
 
   agregarProducto(producto: Producto) {
     const existente = this.carrito.find(p => p.id === producto.id);
