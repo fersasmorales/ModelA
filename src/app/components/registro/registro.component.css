@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    height: 1000px;
+}
+
+.login{
+    background-color: aqua;
+    height: 700px;
+    width: 1200px;
+    border-radius: 50px;
+    background: linear-gradient(to right, #8890c1, #b7bfef);
+    display: flex;
+}
+
+.portada{
+    background: linear-gradient(to right, #dcdeea, #b7bfef);
+    height: 700px;
+    width: 600px;
+    border-radius: 50px;
+}
+
+.iniciar {
+  height: 700px;
+  width: 600px;
+}
+
+.iniciar h1{
+    font-family: 'fredoka';
+    margin-top: 50px;
+    font-weight: 600;
+    color: #2b2f3a;
+    font-size: 45px;
+    text-align: center;
+}
+.iniciar h2{
+    font-family: 'Poppins';
+    font-weight: 500;
+    color: #f0f0f7;
+    margin-left: 30px;
+}
+
+.contenedor-boton {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.titulos{
+    margin-bottom: 60px;
+}
+
+.titulos h1 {
+  font-family: 'fredoka';
+  font-weight: 600;
+  color: #f0f0f7;
+  font-size: 45px;
+  text-align: center;
+  margin-top: 30px;
+
+}
+
+
+.iniciar button {
+  font-family: 'Fredoka';
+  font-weight: 500;
+  font-size: 35px;
+  padding: 5px 30px;
+  color: #fafafa;
+  border-radius: 30px;
+  border: none;
+  background: linear-gradient(to right, #b7bfef, #838bbd);
+  transition: opacity 0.3s;
+}
+
+.iniciar input {
+  padding: 5px 20px;
+  border:3px solid #f0f0f7;
+  border-radius: 30px;
+  margin-left: 30px;
+  width: 500px;
+  height: 40px;
+  font-family: 'Poppins';
+  font-size: 20px;
+  color: #2b2f3a;
+  background-color: #f0f0f7;
+  outline: none;
+}
+
+.centrartodo{
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center; /* centra horizontal */
+    align-items: center; 
+}
+
+.olvido {
+  display: inline-block; /* o block */
+  margin-left: 30px;
+  font-family: 'Poppins';
+  font-weight: 400;
+  color: #2b2f3a;
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.inicio{
+    display: inline-block; 
+  font-family: 'Poppins';
+  font-weight: 400;
+  color: #f0f0f7;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.input-group input:focus{
+    border-color: #838bbd;
+    outline: none;
+}
+
+.input-group input{
+    transition: border 1s;
+    margin-top: -15px;
+}
+
+.iniciar button:hover{
+    opacity: 0.6;
+}
+
+.portada img{
+    height: 700px;
+    width: 600px;
+}
+
+.dos {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 0 30px;
+}
+
+.dos > div {
+  flex: 1;                 /* Que cada input ocupe el 50% del espacio */
+  display: flex;
+  flex-direction: column;  /* Para que el h2 quede arriba del input */
+  margin: 0 10px;          /* Espacio entre los dos campos */
+}
+
+.dos input{
+    width: 200px;
+    margin-left: 0;
+}
+
+.input-group{
+    margin-top: -50px;
+}
+
+.dos h2{
+    margin-left: 0px;
+}

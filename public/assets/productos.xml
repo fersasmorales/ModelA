@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <productos>   
+        <producto>
+          <id>1</id>
+          <nombre>Unicornio</nombre>
+          <precio>150</precio>
+          <imagen>assets\unicornio.png</imagen> <!-- Ya tiene la ruta relativa -->
+          <creador>Fernanda Morales</creador>
+          <descripcion>Modelo 3D animal fantástico de unicronio mitología</descripcion>
+        </producto>
+        <producto>
+          <id>2</id>
+          <nombre>Casa de Bluey</nombre>
+          <precio>300</precio>
+          <imagen>assets\casita.png</imagen> <!-- Ya tiene la ruta relativa -->
+          <creador>Gabriel Vázquez</creador>
+          <descripcion>Modelo 3D Casa de Bluey familia</descripcion>
+        </producto>
+        <producto>
+          <id>3</id>
+          <nombre>Rana de campo</nombre>
+          <precio>50</precio>
+          <imagen>assets\rana.png</imagen> <!-- Ya tiene la ruta relativa -->
+          <creador>José Becerra</creador>
+          <descripcion>Modelo 3D rana de campo para jardin, granja o casa</descripcion>
+        </producto>
+        <producto>
+          <id>4</id>
+          <nombre>Cinnamoroll</nombre>
+          <precio>75</precio>
+          <imagen>assets\cinnamonroll.png</imagen> <!-- Ya tiene la ruta relativa -->
+          <creador>Fernanda Morales</creador>
+          <descripcion>Modelo 3D de personaje de Sanrio Cinnamoroll</descripcion>
+        </producto>
+         <producto>
+          <id>5</id>
+          <nombre>Hello Kitty</nombre>
+          <precio>300</precio>
+          <imagen>assets\hello kitty.png</imagen> <!-- Ya tiene la ruta relativa -->
+          <creador>Gabriel Vázquez</creador>
+          <descripcion>Modelo 3D de personaje de Sanrio Hello Kitty</descripcion>
+        </producto>
+         <producto>
+          <id>6</id>
+          <nombre>Strawberry Shortcake</nombre>
+          <precio>90</precio>
+          <imagen>assets\rosita.png</imagen> <!-- Ya tiene la ruta relativa -->
+          <creador>José Becerra</creador>
+          <descripcion>Modelo 3D de personaje Rosita Fresita, traje de campo</descripcion>
+        </producto>
+        <producto>
+          <id>7</id>
+          <nombre>Snoopy and WoodStock</nombre>
+          <precio>150</precio>
+          <imagen>assets\snoopy.png</imagen> <!-- Ya tiene la ruta relativa -->
+          <creador>Fernanda Morales</creador>
+          <descripcion>Modelo 3D de Snoopy con su amigo WoodStock con pasto y flores a su alrededor.</descripcion>
+        </producto>
+    </productos>
