@@ -1,65 +1,58 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-<body>
-    <div class="centrartodo">
-    <div class="login">
-        
-        <div class="iniciar">
-        <div class="titulos">
+<div class="centrartodo">
+  <div class="login">
+    <div class="iniciar">
+      <div class="titulos">
         <h1>¡Bienvenido!</h1>
-        </div>
-        <div class="input-group">
-        <div class="dos">
-            <div>
-                <h2>Nombre</h2>
-                <input type="text" name="usuario">
-            </div>
-        <div>
-        <h2>Apellido</h2>
-        <input type="text" name="usuario">
-        </div>
-        
-        </div>
-        
-        <div class="dos">
-            <div>
-        <h2>Usuario</h2>
-        <input type="text" name="usuario">
-            </div>
+      </div>
 
-            <div>
-        <h2>Correo</h2>
-        <input type="email" name="usuario">
-            </div>
+      <div class="input-group">
+        <div class="dos">
+          <div>
+            <h2>Nombre</h2>
+            <input type="text" name="nombre" [(ngModel)]="nombre" />
+          </div>
+          <div>
+            <h2>Apellido</h2>
+            <input type="text" name="apellido" [(ngModel)]="apellido" />
+          </div>
         </div>
-        
-        
+
+        <div class="dos">
+          <div>
+            <h2>Usuario</h2>
+            <input type="text" name="username" [(ngModel)]="username" />
+          </div>
+          <div>
+            <h2>Correo</h2>
+            <input type="email" name="correo" [(ngModel)]="correo" />
+          </div>
+        </div>
+
         <h2>Número de teléfono</h2>
-        <input type="number" name="usuario" placeholder="+52">
+        <input type="text" name="telefono" placeholder="+52" [(ngModel)]="telefono" />
+
         <div class="dos">
-            <div>
-        <h2>Contraseña</h2>
-        <input type="password" name="contrasena">
-            </div>
-            <div>
-        <h2>Confirma</h2>
-        <input type="password" name="contrasena">
-            </div>
+          <div>
+            <h2>Contraseña</h2>
+            <input type="password" name="contrasena" [(ngModel)]="contrasena" />
+          </div>
+          <div>
+            <h2>Confirma</h2>
+            <input type="password" name="confirmarContrasena" [(ngModel)]="confirmarContrasena" />
+          </div>
         </div>
-        
-        
-        </div>
+      </div>
 
-        <div class="contenedor-boton">
-        <button>Registrarse</button>
-        </div>
-        <a href="" class="inicio">¿Ya tienes una cuenta? Inicia sesión</a>
-        </div>
+      <div class="contenedor-boton">
+        <button (click)="registrar()">Registrarse</button>
+      </div>
 
-
-        <div class="portada">
-            <img src="assets/2.png">
-        </div>
+      <a href="/" class="inicio">¿Ya tienes una cuenta? Inicia sesión</a>
     </div>
+
+    <div class="portada">
+      <img src="assets/2.png" />
     </div>
-    
-</body>
+  </div>
+</div>

@@ -6,16 +6,16 @@
     background-color: #332a51 !important;
   }
   .colored-toast.swal2-icon-error {
-    background-color: #f27474 !important;
+    background-color: #2b2f3a !important;
   }
   .colored-toast.swal2-icon-warning {
-    background-color: #f8bb86 !important;
+    background-color: #2b2f3a !important;
   }
   .colored-toast.swal2-icon-info {
-    background-color: #3fc3ee !important;
+    background-color: #2b2f3a !important;
   }
   .colored-toast.swal2-icon-question {
-    background-color: #87adbd !important;
+    background-color: #2b2f3a !important;
   }
   .colored-toast .swal2-title {
     color: white;
@@ -36,3 +36,54 @@ font-family:'Fredoka';
   font-weight: 400;
   color: #d9d9f0;
 }
+
+.mi-popup {
+  background: linear-gradient(to right, #b7bfef, #838bbd);
+  border-radius: 20px;
+  
+}
+
+.mi-titulo {
+  color: #2b2f3a;
+  font-size: 24px;
+  font-weight: bold;
+  font-family: 'Fredoka';
+  font-size: 40px;
+}
+
+.mi-boton {
+  background: linear-gradient(to right, #b7bfef, #dcdeea);
+  color: #2b2f3a;
+  font-family: 'Poppins';
+  font-weight: 600;
+  font-size: 25px;
+  border-radius: 40px !important;
+  padding: 20px 30px;
+}
+
+/* Estilo del borde del ícono */
+.mi-icon.swal2-icon {
+  border-color: #2b2f3a !important;
+}
+
+/* ❌ Cruz del ícono de error */
+.mi-icon .swal2-x-mark-line-left,
+.mi-icon .swal2-x-mark-line-right {
+  background-color: #2b2f3a !important;
+}
+
+/* ✅ Check del ícono de success */
+.mi-icon .swal2-success-line-tip,
+.mi-icon .swal2-success-line-long {
+  background-color: #2b2f3a !important;
+}
+.mi-icon .swal2-success-ring {
+  border: 4px solid #2b2f3a50 !important;
+}
+
+/* ⚠️ Triángulo del ícono de warning */
+.mi-icon .swal2-icon-content {
+  color: #2b2f3a !important;
+}
+
+
