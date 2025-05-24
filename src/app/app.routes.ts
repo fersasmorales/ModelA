@@ -6,6 +6,7 @@ import { PerfilComponent } from './components/perfil/perfil.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { RecuperarComponent } from './components/recuperar/recuperar.component';
+import { InventarioComponent } from './components/inventario/inventario.component';
 
 export const routes: Routes = [
     {path:'',component:LoginComponent},
@@ -14,5 +15,6 @@ export const routes: Routes = [
     {path:'carrito',component:CarritoComponent},
     {path:'header',component:HeaderComponent},
     {path:'registro',component:RegistroComponent},
-    {path:'recuperar',component:RecuperarComponent}
+    {path:'recuperar',component:RecuperarComponent},
+    {path:'inventario',component:InventarioComponent}
 ];

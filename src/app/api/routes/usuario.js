@@ -15,10 +15,16 @@ router.post('/validate', (req, res) => {
     if (err) return res.status(500).send(err);
 
     if (resultados.length > 0) {
-      res.json({ success: true, user: resultados[0] });
-    } else {
-      res.status(401).json({ success: false, message: 'Credenciales inválidas' });
-    }
+  const usuario = resultados[0];
+  res.json({
+    success: true,
+    message: 'Login exitoso',
+    username: usuario.username,
+    rol: usuario.Rol_U  // Aquí agregas el rol
+  });
+} else {
+  res.status(401).json({ success: false, message: 'Credenciales inválidas' });
+}
   });
 });
 

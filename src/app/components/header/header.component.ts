@@ -17,6 +17,12 @@ export class HeaderComponent {
     private router:Router
   ){}
 
+  esAdmin: boolean = false;
+  ngOnInit() {
+    const rol = localStorage.getItem('rol');
+    this.esAdmin = rol === 'admin';
+  }
+
   producto(){
     this.router.navigate(['/']);
   }
@@ -28,6 +34,15 @@ export class HeaderComponent {
   }
   perfil(){
     this.router.navigate(['/perfil']);
+  }
+  inventario(){
+    this.router.navigate(['/inventario']);
+  }
+
+  logout() {
+    localStorage.removeItem('rol');
+    localStorage.removeItem('username');
+    this.router.navigate(['']);
   }
 
   

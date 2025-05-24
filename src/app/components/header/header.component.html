@@ -5,6 +5,10 @@
     
         <div class="iconos">
             <button (click)="carrito()"><i class="fa-solid fa-cart-shopping"></i></button>
+            <button *ngIf="esAdmin" (click)="inventario()">
+            <i class="fa-solid fa-truck"></i>
+            </button>
+
         </div>
         <div class="iconos">
             <a href="/producto"><h1>ModelA</h1></a>
@@ -12,6 +16,6 @@
         </div>
         <div class="iconos">
             <button (click)="perfil()"><i class="fa-solid fa-user"></i></button>
-            <button><i class="fa-solid fa-bars"></i></button>
+            <button (click)="logout()"><i class="fa-solid fa-right-from-bracket"></i></button>
         </div>
 </div>

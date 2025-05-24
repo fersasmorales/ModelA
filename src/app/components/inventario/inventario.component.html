@@ -1,0 +1,38 @@
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<app-header></app-header>
+<div class="margen"></div>
+<div class="bienvenida">
+<div class="fondo">
+<h1>INVENTARIO</h1>
+<button><i class="fa-solid fa-plus"></i></button>
+</div>
+<div class="home">
+    <div class="productos">
+        <div *ngFor="let producto of productos" class="producto">
+            
+            <button (click)="agregarAlCarrito(producto)" class="carrito">
+                        <i class="fa-solid fa-pencil"></i>
+                    </button>
+            <img [src]="producto.imagen">
+            <div class="especificaciones">
+                <h3>{{producto.nombre}}</h3>
+                <div class="card-footer">
+                    <p>Precio: ${{producto.precio}}</p>
+                    <button (click)="agregarAlCarrito(producto)" class="carrito">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                    
+                </div>
+            </div>
+            
+        </div>
+        <div *ngIf="productos.length==0" class="vacio">
+          <img src="assets/hello kitty.png">
+          <p class="vaciotxt">Proximamente más modelos para ti</p>
+          <p>¡Sé paciente!</p>
+        </div>
+        </div>
+</div>
+</div>

@@ -32,6 +32,8 @@ onLogin() {
   this.loginService.login(credentials).subscribe({
     next: (response) => {
       console.log('Login exitoso', response);
+      localStorage.setItem('username', response.username);
+      localStorage.setItem('rol', response.rol); // <- guardamos el rol
       this.router.navigate(['/producto']);
     },
     error: (error) => {
