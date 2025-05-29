@@ -1,0 +1,70 @@
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+
+<app-header></app-header>
+
+<div class="margen"></div>
+<div class="bienvenida">
+  <div class="fondo">
+    <h1>INVENTARIO</h1>
+    <button (click)="toggleFormulario()">
+      <i class="fa-solid fa-plus"></i>
+    </button>
+  </div>
+
+  <!-- Formulario para agregar/editar -->
+
+<div *ngIf="mostrarFormulario" class="formulario-producto">
+  <input type="text" placeholder="Nombre" [(ngModel)]="productoFormulario.nombre">
+  <textarea placeholder="Descripción" [(ngModel)]="productoFormulario.descripcion"></textarea>
+
+  <input type="number" placeholder="Precio" [(ngModel)]="productoFormulario.precio">
+  <input type="text" placeholder="Imagen (URL)" [(ngModel)]="productoFormulario.imagen">
+  <input type="text" placeholder="Creador" [(ngModel)]="productoFormulario.creador">
+
+  <select [(ngModel)]="productoFormulario.categoria">
+    <option value="" disabled selected>Selecciona una categoría</option>
+    <option value="Fantasía">Fantasía</option>
+    <option value="Personaje">Personaje</option>
+    <option value="Accesorio">Accesorio</option>
+    <option value="Otros">Otros</option>
+  </select>
+
+  <button *ngIf="editarProducto" (click)="actualizarProducto()">Actualizar</button>
+  <button *ngIf="!editarProducto" (click)="agregarProducto()">Agregar</button>
+  <button (click)="toggleFormulario()">Cancelar</button>
+</div>
+
+
+  <!-- Lista de productos -->
+  <div class="home">
+    <div class="productos">
+      <div *ngFor="let producto of productos" class="producto">
+        <button (click)="prepararEdicion(producto)" class="btn-editar">
+          <i class="fa-solid fa-pencil"></i>
+        </button>
+
+        <img [src]="producto.imagen" alt="{{ producto.nombre }}">
+
+        <div class="especificaciones">
+          <h3>{{ producto.nombre }}</h3>
+          <p>{{ producto.descripcion | slice:0:50 }}{{ producto.descripcion.length > 50 ? '...' : '' }}</p>
+          <p>Creador: {{ producto.creador }}</p>
+          <div class="card-footer">
+            <p>Precio: ${{ producto.precio }}</p>
+            <button (click)="eliminarProducto(producto.id)" class="carrito">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="productos.length == 0" class="vacio">
+        <img src="assets/hello kitty.png">
+        <p class="vaciotxt">Próximamente más modelos para ti</p>
+        <p>¡Sé paciente!</p>
+      </div>
+    </div>
+  </div>
+</div>

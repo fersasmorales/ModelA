@@ -1,0 +1,32 @@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+
+<div class="centrartodo">
+  <div class="login">
+    <div class="portada">
+      <img src="assets/1.png" />
+    </div>
+    <div class="iniciar">
+      <form (ngSubmit)="onLogin()">
+        <div class="titulos">
+          <h1>Iniciar sesión</h1>
+        </div>
+
+        <div class="input-group">
+          <h2>Nombre de usuario</h2>
+          <input type="text" name="usuario" [(ngModel)]="username" required />
+
+          <h2>Contraseña</h2>
+          <input type="password" name="contrasena" [(ngModel)]="Contrasenia" required />
+        </div>
+
+        <a href="/recuperar" class="olvido">Olvidé mi contraseña</a>
+
+        <div class="contenedor-boton">
+          <button type="submit">Iniciar</button>
+        </div>
+      </form>
+
+      <a href="/registro" class="registro">¿No tienes cuenta? registrate aquí</a>
+    </div>
+  </div>
+</div>
